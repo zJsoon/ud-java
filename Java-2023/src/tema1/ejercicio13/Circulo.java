@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Point;
 import java.util.Random;
 
+import utils.ventanas.ventanaBitmap.VentanaGrafica;
+
 /**
  * @author zJson
  */
@@ -16,7 +18,7 @@ public class Circulo {
 	private static final int X_MAXIMA = 500;
 	private static final int Y_MAXIMA = 300;
 	private static Random random = new Random(); // Es static porque necesitas solo un generador para los números aleatorios. 
-	
+
 	public static float getGrosor() {
 		return grosor;
 	}
@@ -24,7 +26,7 @@ public class Circulo {
 	public static void setGrosor(float grosor) {
 		Circulo.grosor = grosor;
 	}
-	
+
 	// NO STATIC
 	private int radioEnPixels; // Radio del circulo en píxeles.
 	private int xCentro; // Coordenadas X del circulo.
@@ -52,8 +54,8 @@ public class Circulo {
 		momentoCreacionMS = System.currentTimeMillis(); // momentoCreacionMS = (new Date()).getTime();
 
 	}
-	
-	
+
+
 	/** Crea un círculo nuevo
 	 * @param radioEnPixels	Radio del círculo en píxeles. Debe ser positivo
 	 * @param centro	Coordenadas del centro del círculo, en píxeles
@@ -62,15 +64,15 @@ public class Circulo {
 	 */
 	public Circulo(int radioEnPixels, Point centro, Color colorBorde, Color colorRelleno) {
 		this(radioEnPixels, centro.x, centro.y, colorBorde, colorRelleno);
-//		this.radioEnPixels = radioEnPixels;
-//		this.xCentro = centro.x;
-//		this.yCentro = centro.y;
-//		this.colorBorde = colorBorde;
-//		this.colorRelleno = colorRelleno;
+		//		this.radioEnPixels = radioEnPixels;
+		//		this.xCentro = centro.x;
+		//		this.yCentro = centro.y;
+		//		this.colorBorde = colorBorde;
+		//		this.colorRelleno = colorRelleno;
 		momentoCreacionMS = System.currentTimeMillis();
 
 	}
-	
+
 	/** Crea un círculo nuevo de color azul y relleno amarillo
 	 * @param radioEnPixels	Radio del círculo en píxeles. Debe ser positivo
 	 * @param xCentro	Coordenadas x del centro del círculo, en píxeles (de izquierda a derecha)
@@ -97,7 +99,7 @@ public class Circulo {
 		colorRelleno = colores[random.nextInt(colores.length)];
 		momentoCreacionMS = System.currentTimeMillis();
 	}
-	
+
 	public String toString() {
 		return String.format("(%d,%d) - %d", xCentro, yCentro, radioEnPixels);
 		// return "(" + xCentro + "," + yCentro + ")";
@@ -151,7 +153,11 @@ public class Circulo {
 	public long getMomentoCreacionMS() {
 		return momentoCreacionMS;
 	}
-//	public static void dibuja(VentanaGrafica v) {
-//		v.dibujaCirculo(xCentro, yCentro, radioEnPixels, 1, colorBorde, colorRelleno);
-//	}
+	public void dibuja(VentanaGrafica v) {
+		v.dibujaCirculo(xCentro, yCentro, radioEnPixels, 1, colorBorde, colorRelleno);
+	}
+	public boolean tienePunto(Point punto) {
+		double distCentro = Math.sqrt((xCentro-punto.x)*(xCentro-punto.x) + (yCentro-punto.y)*(yCentro-punto.y));
+		return distCentro <= radioEnPixels;
+	}
 }

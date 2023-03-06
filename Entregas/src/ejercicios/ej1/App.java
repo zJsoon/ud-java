@@ -1,6 +1,8 @@
 package ejercicios.ej1;
 
 public class App {
+	private static String[] app1;
+	private static String[] app2;
 	private String[] listaApps;
 	private String nombre;
 	private String tipo = "Utilidad";
@@ -14,10 +16,24 @@ public class App {
 	private float porcentajeUso = 0;
 	private byte usoMemoria = 0;
 	private byte usoTotalMemoria = 0;
-
+	
+	public static void main(String[] args) {
+		equals(app1, app2);
+	}
+	private static void equals(Object object1, Object object2) {
+		if(object1!=null && object2!=null) {
+			if(object1.equals(object2)) {
+				System.out.println("Las dos APPS son iguales.");
+			}else {
+				System.out.println("Las dos APPS son diferentes.");
+			}			
+		}else {
+			System.err.println("Los objetos que has introducidos son nulos.");
+		}
+	}
 	public App() {
 		super();
-		// TODO Auto-generated constructor stub
+		// TODO
 	}
 	
 	public App(String nombre) {
@@ -47,7 +63,6 @@ public class App {
 		this.usoMemoria = usoMemoria;
 		this.usoTotalMemoria = usoTotalMemoria;
 	}
-
 	public String getNombre() {
 		return nombre;
 	}
@@ -124,4 +139,10 @@ public class App {
 	public void setUsoTotalMemoria(byte usoTotalMemoria) {
 		this.usoTotalMemoria = usoTotalMemoria;
 	}
+	
+	@Override
+	public String toString() {
+		return nombre + "[" + tipo + "]" + " - " + precio + "$ - instalada" + fechaDescarga + ", " + usoMemoria + "bytes";
+	}
+	
 }
