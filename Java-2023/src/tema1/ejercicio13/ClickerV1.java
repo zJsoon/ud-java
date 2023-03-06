@@ -25,7 +25,8 @@ public class ClickerV1 {
 		Point punto = vent.getRatonClicado();
 		punto = vent.esperaAClick();
 		System.out.println( punto );
-		while(clickaDentroDelCirculo(punto, c4.getxCentro(), c4.getyCentro(), c4.getRadioEnPixels()) != true){
+		while(clickaDentroDelCirculo(punto, c4.getxCentro(), c4.getyCentro(), c4.getRadioEnPixels()) == true){
+			vent.borra();
 		}
 		
 		
@@ -40,6 +41,5 @@ public class ClickerV1 {
 		}else {
 			return false;
 		}
-	}
-	
+	}	
 }

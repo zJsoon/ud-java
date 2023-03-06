@@ -1,7 +1,6 @@
 package tema1.ejercicio13;
 
 import java.awt.Color;
-import java.util.Date;
 import java.awt.Point;
 import java.util.Random;
 
@@ -152,5 +151,7 @@ public class Circulo {
 	public long getMomentoCreacionMS() {
 		return momentoCreacionMS;
 	}
-	
+//	public static void dibuja(VentanaGrafica v) {
+//		v.dibujaCirculo(xCentro, yCentro, radioEnPixels, 1, colorBorde, colorRelleno);
+//	}
 }
