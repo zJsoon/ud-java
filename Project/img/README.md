@@ -1,0 +1,1 @@
+Upload your own image with the following name --> logo.png
