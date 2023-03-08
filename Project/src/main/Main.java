@@ -1,0 +1,9 @@
+package main;
+
+import window.loginRegister.WindowLoginRegister;
+
+public class Main {
+	public static void main(String[] args) {
+		new WindowLoginRegister();
+	}
+}
