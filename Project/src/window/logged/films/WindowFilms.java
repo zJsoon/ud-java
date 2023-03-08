@@ -26,7 +26,7 @@ private static final long serialVersionUID = 1L;
 		setTitle("TV | Films DataBase - Films");
 		
 		/*IMG TITLE*/
-		ImageIcon im = new ImageIcon("C:/Users/zJson/Desktop/java/Project/img/logo.png");
+		ImageIcon im = new ImageIcon("./img/logo.png");
 		setIconImage(im.getImage());
 		
 		/*CREATE PANELS*/
